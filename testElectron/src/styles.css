@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 30px 60px;
+    font-size: 35px;
+    /*text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;; */
+    border-radius: 15px;
+    border: 1px solid #000000;
+    background-color: #3498db;
+    color: #ffffff;
+    margin-right: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    height: 150px;
+    width: 300px; 
+    text-align: center; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+  
+
+  .btn-clinico {
+    background-color: #13679e; 
+  }
+  
+  .btn-generic {
+    background-color: #4877cf; 
+  }
+  
+  .btn-agendado {
+    background-color: #47a7d3; 
+  }
+  .button:active {
+    background-color: #143a53;
+    transform: translateY(2px);
+  }
+  
+
+  .logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px;
+    height: 160px;
+  }
+  
