@@ -9,8 +9,10 @@
   "author": "Gabriel Spioni",
   "license": "ISC",
   "dependencies": {
+    "azure-cognitiveservices-face": "^3.0.0",
     "electron": "^25.1.1",
     "face-api.js": "^0.22.2",
-    "node": "^20.2.0"
+    "node": "^20.2.0",
+    "python-shell": "^5.0.0"
   }
 }
