@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
   <link rel="stylesheet" type="text/css" href="styleForms.css">
+  <link rel="stylesheet" type="text/css" href="styleIconFox.css">
 </head>
 <body>
   <div class="container">
@@ -20,10 +20,20 @@
     </form>
   </div>
 
-  <a href="https://api.whatsapp.com/send?phone=NUMERO_DO_TELEFONE" target="_blank" class="whatsapp-button">
+  <a href="#" class="whatsapp-button" onclick="toggleClickedState(event)">
     <img src="images/fox_med.jpeg" alt="WhatsApp Icon" class="whatsapp-icon">
+    <div class="popup">
+      <div class="popup-content">
+        <p>Ativar Assistente?</p>
+        <div class="button-container">
+          <img src="images/rightA.png" alt="Sim" class="icon-button" onclick="handleButtonClick('Sim')">
+          <img src="images/closeW.png" alt="Não" class="icon-button" onclick="handleButtonClick('Não')">
+        </div>
+      </div>
+    </div>
   </a>
 
   <script src="../js_scripts/clientCadastr.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

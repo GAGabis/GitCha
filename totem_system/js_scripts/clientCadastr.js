@@ -3,15 +3,12 @@ const cpfInput = document.getElementById('cpf');
 cpfInput.addEventListener('input', function() {
   let cpf = cpfInput.value;
 
-  // Remove todos os caracteres não numéricos
   cpf = cpf.replace(/\D/g, '');
 
-  // Formata o CPF no formato XXX.XXX.XXX-XX
   cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
   cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
   cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 
-  // Atualiza o valor do campo
   cpfInput.value = cpf;
 });
 
@@ -20,10 +17,8 @@ const dataNascimentoInput = document.getElementById('data_nascimento');
 dataNascimentoInput.addEventListener('input', function() {
   let dataNascimento = dataNascimentoInput.value;
 
-  // Remove todos os caracteres não numéricos
   dataNascimento = dataNascimento.replace(/\D/g, '');
 
-  // Formata a data no formato DD/MM/AAAA
   if (dataNascimento.length > 2) {
     const dia = dataNascimento.substring(0, 2);
     const mes = dataNascimento.substring(2, 4);
@@ -32,7 +27,6 @@ dataNascimentoInput.addEventListener('input', function() {
     dataNascimento = `${dia}/${mes}/${ano}`;
   }
 
-  // Atualiza o valor do campo
   dataNascimentoInput.value = dataNascimento;
 });
 
@@ -47,14 +41,31 @@ function SubmitEvent(event) {
     var cpf = document.getElementById('cpf').value;
     var dataNascimento = document.getElementById('data_nascimento').value;
     var numConvenio = document.getElementById('num_convenio').value;
-    //restante
+    
     console.log(nome);
+    console.log(cpf);
+    console.log(dataNascimento);
+    console.log(numConvenio);
     if (nome == 'gabriel'){
       window.location.href = 'index.html';
 
     }
 
-
-
   }
-  
+
+function toggleClickedState(event) {
+  event.preventDefault();
+  var whatsappButton = document.querySelector('.whatsapp-button');
+  whatsappButton.classList.toggle('clicked');
+}
+
+
+function handleButtonClick(option) {
+  if (option === "Sim") {
+    console.log("Você clicou em 'Sim'");
+  } else if (option === "Não") {
+    console.log("Você clicou em 'Não'");
+  }
+
+
+}

@@ -2,6 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+ 
   height: 100vh;
   color: #000000;
   font-size: 20px;
@@ -11,7 +12,7 @@ body {
 }
 
 .container {
-  width: 500px;
+  width: 300px;
   padding: 40px;
   background-color: #fff;
   box-shadow: 12px 12px 0px rgba(79,209,197,.64);  
@@ -93,3 +94,4 @@ input[type="submit"] {
     height: 80px;
   }
 }
+

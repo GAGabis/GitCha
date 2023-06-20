@@ -22,8 +22,8 @@ html, body {
   }
   
   .button {
-    min-width: 330px; /* Largura mínima do botão */
-    min-height: 650px; /* Altura mínima do botão */
+    min-width: 330px; 
+    min-height: 650px; 
     
     font-family: 'Nunito', sans-serif;
     font-size: 50px;
@@ -42,7 +42,7 @@ html, body {
     position: relative;
     padding: 10px;
     
-    margin: 10px; /* Espaçamento entre os botões */
+    margin: 10px; 
   }
 
   @media (min-width: 768px) {
@@ -94,7 +94,7 @@ html, body {
     left: 0%;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Opacidade de fundo: 0.5 */
+    background-color: rgba(0, 0, 0, 0.8); 
     display: none;
   }
   
