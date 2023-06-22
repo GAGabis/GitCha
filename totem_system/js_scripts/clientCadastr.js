@@ -1,6 +1,6 @@
 const cpfInput = document.getElementById('cpf');
 
-cpfInput.addEventListener('input', function() {
+cpfInput.addEventListener('input', function () {
   let cpf = cpfInput.value;
 
   cpf = cpf.replace(/\D/g, '');
@@ -14,7 +14,7 @@ cpfInput.addEventListener('input', function() {
 
 const dataNascimentoInput = document.getElementById('data_nascimento');
 
-dataNascimentoInput.addEventListener('input', function() {
+dataNascimentoInput.addEventListener('input', function () {
   let dataNascimento = dataNascimentoInput.value;
 
   dataNascimento = dataNascimento.replace(/\D/g, '');
@@ -34,24 +34,24 @@ dataNascimentoInput.addEventListener('input', function() {
 
 
 function SubmitEvent(event) {
-    event.preventDefault(); 
-  
+  event.preventDefault();
 
-    var nome = document.getElementById('nome').value;
-    var cpf = document.getElementById('cpf').value;
-    var dataNascimento = document.getElementById('data_nascimento').value;
-    var numConvenio = document.getElementById('num_convenio').value;
-    
-    console.log(nome);
-    console.log(cpf);
-    console.log(dataNascimento);
-    console.log(numConvenio);
-    if (nome == 'gabriel'){
-      window.location.href = 'index.html';
 
-    }
+  var nome = document.getElementById('nome').value;
+  var cpf = document.getElementById('cpf').value;
+  var dataNascimento = document.getElementById('data_nascimento').value;
+  var numConvenio = document.getElementById('num_convenio').value;
+
+  console.log(nome);
+  console.log(cpf);
+  console.log(dataNascimento);
+  console.log(numConvenio);
+  if (nome == 'gabriel') {
+    window.location.href = 'index.html';
 
   }
+
+}
 
 function toggleClickedState(event) {
   event.preventDefault();
@@ -59,13 +59,34 @@ function toggleClickedState(event) {
   whatsappButton.classList.toggle('clicked');
 }
 
-
 function handleButtonClick(option) {
   if (option === "Sim") {
     console.log("Você clicou em 'Sim'");
+
+    if ('speechSynthesis' in window) {
+      var utterance = new SpeechSynthesisUtterance("O assistente foi ativado.");
+
+      // Inicia a síntese de voz
+      window.speechSynthesis.speak(utterance);
+      eventSpeak();
+    } else {
+      console.log("A síntese de voz não é suportada neste navegador.");
+    }
   } else if (option === "Não") {
     console.log("Você clicou em 'Não'");
   }
+}
 
 
+function eventSpeak() {
+  const listInputs = document.querySelectorAll('input');
+  
+  listInputs.forEach(input => {
+    const functionTTS = () => {
+      const phraseSpeak = input.getAttribute('name');
+      let phraseInstance= new SpeechSynthesisUtterance(phraseSpeak);
+      window.speechSynthesis.speak(phraseInstance); 
+    }
+    input.addEventListener("click", functionTTS);
+  })
 }
