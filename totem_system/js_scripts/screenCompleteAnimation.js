@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", function(event) {
       }, 100); 
     }, 3000); 
     setTimeout(function() {
-        window.location.href = "starting.html";
+        window.location.href = "IndexStarting.html";
       }, 6000);
   });
     
