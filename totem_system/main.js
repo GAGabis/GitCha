@@ -11,7 +11,7 @@ function createWindow() {
     }
   });
 
-  mainWindow.loadFile('src/starting.html');
+  mainWindow.loadFile('src/indexStarting.html');
 
   mainWindow.on('closed', () => {
     app.quit();

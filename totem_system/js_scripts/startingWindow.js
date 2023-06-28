@@ -1,5 +1,5 @@
 function redirecionarParaIndex() {
-    window.location.href = "index.html";
+    window.location.href = "screen1.html";
   }
   
   window.addEventListener("DOMContentLoaded", function() {
