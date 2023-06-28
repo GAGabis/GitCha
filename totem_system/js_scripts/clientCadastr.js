@@ -41,14 +41,17 @@ function SubmitEvent(event) {
   var cpf = document.getElementById('cpf').value;
   var dataNascimento = document.getElementById('data_nascimento').value;
   var numConvenio = document.getElementById('num_convenio').value;
+  if (nome !== '' && cpf.length === 14 && dataNascimento.length === 10 && numConvenio !== '') {
+    window.location.href = 'screenCompleteTotem.html';
+  } else {
 
+    alert('Preencha todos os campos corretamente.');
+  }
   console.log(nome);
   console.log(cpf);
   console.log(dataNascimento);
   console.log(numConvenio);
-  if (nome == 'gabriel') {
-    window.location.href = 'starting.html';
+  
 
-  }
 
 }

@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 60px;
+    color: #333;
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.8), 0 0 0 30px #4fd1c5;
+    border-radius: 20px;
+    opacity: 0;
+    animation: fade-in 1s ease-in forwards;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
