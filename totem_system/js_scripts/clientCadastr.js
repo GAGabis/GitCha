@@ -1,4 +1,15 @@
 const cpfInput = document.getElementById('cpf');
+let currentURL = localStorage.getItem('currentUrl');
+
+if (currentURL) {
+  let url = new URL(currentURL);
+  let searchParams = new URLSearchParams(url.search);
+
+  if (searchParams.has('btn')) {
+    let btnValue = searchParams.get('btn');
+    console.log(btnValue);
+  }
+}
 
 cpfInput.addEventListener('input', function () {
   let cpf = cpfInput.value;
@@ -44,7 +55,7 @@ function SubmitEvent(event) {
   if (nome !== '' && cpf.length === 14 && dataNascimento.length === 10 && numConvenio !== '') {
     window.location.href = 'screenCompleteTotem.html';
   } else {
-
+    
     alert('Preencha todos os campos corretamente.');
   }
   console.log(nome);

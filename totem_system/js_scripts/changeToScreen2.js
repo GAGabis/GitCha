@@ -4,8 +4,7 @@ const button3 = document.getElementById('button3');
 
 
 button1.addEventListener('click', () => {
-    window.location.href = './screen2.html?btn=clinico';
-    
+  window.location.href = './screen2.html?btn=clinico';  
 });
 
 button2.addEventListener('click', () => {
