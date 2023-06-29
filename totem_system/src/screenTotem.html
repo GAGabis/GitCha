@@ -16,7 +16,7 @@
       <label for="data_nascimento">Data de Nascimento:</label>
       <input type="text" id="data_nascimento" name="dataDeNascimento" alt = "Digite a sua data de nascimento"required maxlength="10">
       <label for="num_convenio">Carteira do Convênio:</label>
-      <input type="text" alt = "Digite o número do convênio" id="num_convenio" name="numeroDoconvenio" required>
+      <input type="text" alt="Digite o número do convênio" id="num_convenio" name="numeroDoconvenio" pattern="^(ST|MD|PL)\d{8}$" maxlength="10" required oninput="this.value = this.value.toUpperCase()">
       <input type="submit" value="Cadastrar" onclick="SubmitEvent(event)">
     </form>
   </div>
@@ -34,7 +34,7 @@
     </div>
   </a>
 
-  <script src="../js_scripts/clientCadastr.js"></script>
+  <script src="../js_scripts/screenTotemForms_ClientRegister_and_PaySystem_.js"></script>
   <script src="../js_scripts/assistantIA.js"></script>
   
 </body>
