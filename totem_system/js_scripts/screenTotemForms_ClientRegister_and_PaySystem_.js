@@ -64,20 +64,42 @@ function SubmitEvent(event) {
 
   let plCoberturaClinico = 115;
   let plCoberturaGeneric = 0;
-  let plCobertuarAgendado = 0;
+  let plCoberturaAgendado = 0;
   
   let clinicoGeralCase1 = 100;
 
   if (nome !== '' && cpf.length === 14 && dataNascimento.length === 10 && numConvenio !== '') {
+    let convenioPlano = numConvenio.slice(0,2);
+    
     switch (btnValue) {
       case 'clinico':
-        let convenioPlano = numConvenio.slice(0,2);
         if(convenioPlano === 'ST'){
-          let valorSubstancial = clinicoGeralCase1 - stCoberturaClinico;
-          console.log(valorSubstancial);
+          if(clinicoGeralCase1 < stCoberturaClinico){
+            console.log("Seu convenio cobre a consulta inteira.")
+          }else{
+          let valorSubstancialST = clinicoGeralCase1 - stCoberturaClinico;
+          console.log(valorSubstancialST);
           //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
         }
-
+        }
+        if(convenioPlano === 'MD'){
+          if(clinicoGeralCase1 < stCoberturaClinico){
+            console.log("Seu convenio cobre a consulta inteira.")
+          }else{
+          let valorSubstancialMD = clinicoGeralCase1 - mdCoberturaClinico;
+          console.log(valorSubstancialMD*1);
+          //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
+          }
+        }
+        if(convenioPlano === 'PL'){
+          if(clinicoGeralCase1 < plCoberturaClinico){
+            console.log("Seu convenio cobre a consulta inteira.")
+          }else{
+          let valorSubstancialPL = clinicoGeralCase1 - plCoberturaClinico;
+          console.log(valorSubstancialPL*1);
+          //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
+          }
+        }
       case '':
         break
 
