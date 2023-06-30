@@ -23,6 +23,6 @@ window.addEventListener("DOMContentLoaded", function(event) {
     }, 3000); 
     setTimeout(function() {
         window.location.href = "IndexStarting.html";
-      }, 6000);
+      }, 8000);
   });
     
