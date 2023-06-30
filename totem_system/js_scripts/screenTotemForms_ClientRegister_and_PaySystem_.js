@@ -44,7 +44,7 @@ dataNascimentoInput.addEventListener('input', function () {
 
 function SubmitEvent(event) {
   event.preventDefault();
-  
+
   var nome = document.getElementById('nome').value;
   var cpf = document.getElementById('cpf').value;
   var dataNascimento = document.getElementById('data_nascimento').value;
@@ -54,7 +54,7 @@ function SubmitEvent(event) {
   // SIMULAÇÃO TABELA DE PREÇO:
   //CASE 1: PLANOS (ST/MD/PL) - VALORES A DEFINIR
 
-  let stCoberturaClinico = 60; 
+  let stCoberturaClinico = 60;
   let stCoberturaGeneric = 250;
   let stCoberturaAgendado = 0;
 
@@ -65,84 +65,97 @@ function SubmitEvent(event) {
   let plCoberturaClinico = 115;
   let plCoberturaGeneric = 460;
   let plCoberturaAgendado = 0;
-  
+
   let clinicoGeralCase1 = 100;
   let genericoGeralCase1 = 300;
-  
+
   if (nome !== '' && cpf.length === 14 && dataNascimento.length === 10 && numConvenio !== '') {
-    let convenioPlano = numConvenio.slice(0,2);
-    
+    let convenioPlano = numConvenio.slice(0, 2);
+
     switch (btnValue) {
       case 'clinico':
-        if(convenioPlano === 'ST'){
-          if(clinicoGeralCase1 <= stCoberturaClinico){
+        if (convenioPlano === 'ST') {
+          if (clinicoGeralCase1 <= stCoberturaClinico) {
             console.log("Seu convenio cobre a consulta inteira.");
             window.location.href = "screenCompleteTotem.html";
 
 
-          }else{
-          let valorSubstancialST = clinicoGeralCase1 - stCoberturaClinico;
-          console.log(valorSubstancialST);
-          //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
-        }
-        }
-        if(convenioPlano === 'MD'){
-          if(clinicoGeralCase1 <= stCoberturaClinico){
-            console.log("Seu convenio cobre a consulta inteira.");
+          } else {
+            let valorSubstancialST = clinicoGeralCase1 - stCoberturaClinico;
+            console.log(valorSubstancialST);
+            alert("O plano não obre a consulta inteira, fica devendo")
             window.location.href = "screenCompleteTotem.html";
 
-          }else{
-          let valorSubstancialMD = clinicoGeralCase1 - mdCoberturaClinico;
-          console.log(valorSubstancialMD*1);
-          //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
+            //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
           }
         }
-        if(convenioPlano === 'PL'){
-          if(clinicoGeralCase1 <= plCoberturaClinico){
+        if (convenioPlano === 'MD') {
+          if (clinicoGeralCase1 <= stCoberturaClinico) {
+            console.log("Seu convenio cobre a consulta inteira.");
+            window.location.href = "screenCompleteTotem.html";
+
+          } else {
+            let valorSubstancialMD = clinicoGeralCase1 - mdCoberturaClinico;
+            console.log(valorSubstancialMD * 1);
+            alert("O plano não obre a consulta inteira, fica devendo")
+            window.location.href = "screenCompleteTotem.html";
+            //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
+          }
+        }
+        if (convenioPlano === 'PL') {
+          if (clinicoGeralCase1 <= plCoberturaClinico) {
             console.log("Seu convenio cobre a consulta inteira.");
             window.location.href = "screenCompleteTotem.html";
 
 
-          }else{
-          let valorSubstancialPL = clinicoGeralCase1 - plCoberturaClinico;
-          console.log(valorSubstancialPL*1);
-          //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
+          } else {
+            let valorSubstancialPL = clinicoGeralCase1 - plCoberturaClinico;
+            console.log(valorSubstancialPL * 1);
+            alert("O plano não obre a consulta inteira, fica devendo")
+            window.location.href = "screenCompleteTotem.html";
+            //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
           }
         }
       case 'generic':
-        if(convenioPlano === 'ST'){
-          if(genericoGeralCase1 <= stCoberturaGeneric){
+        if (convenioPlano === 'ST') {
+          if (genericoGeralCase1 <= stCoberturaGeneric) {
             console.log("Seu convenio cobre a consulta inteira.");
             window.location.href = "screenCompleteTotem.html";
 
 
-          }else{
+          } else {
             let valorSubstancialSTg = genericoGeralCase1 - stCoberturaGeneric;
             console.log(valorSubstancialSTg);
+            alert("O plano não obre a consulta inteira, fica devendo");
+            window.location.href = "screenCompleteTotem.html";
           }
         }
-        if(convenioPlano === 'MD'){
-          if(genericoGeralCase1 <= mdCoberturaGeneric){
+        if (convenioPlano === 'MD') {
+          if (genericoGeralCase1 <= mdCoberturaGeneric) {
             console.log("Seu convenio cobre a consulta inteira.");
             window.location.href = "screenCompleteTotem.html";
 
 
-          }else{
+          } else {
             let valorSubstancialMDg = genericoGeralCase1 - mdCoberturaGeneric;
-            console.log(valorSubstancialMDg)
+            console.log(valorSubstancialMDg);
+            alert("O plano não obre a consulta inteira, fica devendo");
+            window.location.href = "screenCompleteTotem.html";
           }
         }
-        if(convenioPlano === 'PL'){
-          if(genericoGeralCase1 <= plCoberturaGeneric){
+        if (convenioPlano === 'PL') {
+          if (genericoGeralCase1 <= plCoberturaGeneric) {
             console.log("Seu convenio cobre a consulta inteira.");
             window.location.href = "screenCompleteTotem.html";
 
 
-          }else{
+          } else {
             let valorSubstancialPLg = genericoGeralCase1 - plCoberturaGeneric;
+            alert("O plano não obre a consulta inteira, fica devendo")
+            window.location.href = "screenCompleteTotem.html";
           }
         }
-      
+
 
     }
   } else {

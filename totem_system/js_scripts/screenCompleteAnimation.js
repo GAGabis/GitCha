@@ -11,7 +11,7 @@ window.addEventListener("DOMContentLoaded", function(event) {
     setTimeout(function() {
       updateMessage();
       message.classList.add("fade-in");
-  
+      
       setTimeout(function() {
         message.classList.remove("fade-in");
         setTimeout(function() {
