@@ -45,10 +45,12 @@ dataNascimentoInput.addEventListener('input', function () {
 function SubmitEvent(event) {
   event.preventDefault();
 
-  var nome = document.getElementById('nome').value;
-  var cpf = document.getElementById('cpf').value;
-  var dataNascimento = document.getElementById('data_nascimento').value;
-  var numConvenio = document.getElementById('num_convenio').value;
+  const nome = document.getElementById('nome').value;
+  const cpf = document.getElementById('cpf').value;
+  const dataNascimento = document.getElementById('data_nascimento').value;
+  const numConvenio = document.getElementById('num_convenio').value;
+  const email = document.getElementById('email').value;
+
 
 
   // SIMULAÇÃO TABELA DE PREÇO:
@@ -69,7 +71,19 @@ function SubmitEvent(event) {
   let clinicoGeralCase1 = 100;
   let genericoGeralCase1 = 300;
 
-  if (nome !== '' && cpf.length === 14 && dataNascimento.length === 10 && numConvenio !== '') {
+  let verficadorPlano = numConvenio.slice(0, 2);
+  var planoBool = false;
+  const planos = ['ST', 'MD', 'PL']; //conter TODOS os PLANOS, LISTA GLOBAL DE VERIFICAÇÃO
+
+  for (let i = 0; i < planos.length; i++) {
+    const variavelAtual = planos[i];
+    if (variavelAtual === verficadorPlano) {
+      planoBool = true;
+    }
+  }
+
+
+  if (nome !== '' && cpf.length === 14 && dataNascimento.length === 10 && planoBool && email.includes('@') && email.endsWith('.com')) {
     let convenioPlano = numConvenio.slice(0, 2);
 
     switch (btnValue) {
