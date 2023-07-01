@@ -45,9 +45,6 @@ function SubmitEvent(event) {
   var planoBool = false;
   const planos = ['ST', 'MD', 'PL']; //conter TODOS os PLANOS, LISTA GLOBAL DE VERIFICAÇÃO
 
-  if(planoBool){
-    console.log("oi")
-  }
   for (let i = 0; i < planos.length; i++) {
     const variavelAtual = planos[i];
     if (variavelAtual === verficadorPlano) {
