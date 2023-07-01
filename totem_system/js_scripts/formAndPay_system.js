@@ -52,7 +52,6 @@ function SubmitEvent(event) {
     }
   }
 
-
   if (nome !== '' && cpf.length === 14 && dataNascimento.length === 10 && planoBool && email.includes('@') && email.endsWith('.com')) {
     let convenioPlano = numConvenio.slice(0, 2);
 
