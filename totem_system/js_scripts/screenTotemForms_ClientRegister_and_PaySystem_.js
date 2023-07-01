@@ -10,38 +10,6 @@ if (currentURL) {
   }
 }
 
-
-const cpfInput = document.getElementById('cpf');
-cpfInput.addEventListener('input', function () {
-  let cpf = cpfInput.value;
-
-  cpf = cpf.replace(/\D/g, '');
-
-  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-  cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-  cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-
-  cpfInput.value = cpf;
-});
-
-const dataNascimentoInput = document.getElementById('data_nascimento');
-
-dataNascimentoInput.addEventListener('input', function () {
-  let dataNascimento = dataNascimentoInput.value;
-
-  dataNascimento = dataNascimento.replace(/\D/g, '');
-
-  if (dataNascimento.length > 2) {
-    const dia = dataNascimento.substring(0, 2);
-    const mes = dataNascimento.substring(2, 4);
-    const ano = dataNascimento.substring(4, 8);
-
-    dataNascimento = `${dia}/${mes}/${ano}`;
-  }
-
-  dataNascimentoInput.value = dataNascimento;
-});
-
 function SubmitEvent(event) {
   event.preventDefault();
 
@@ -68,13 +36,18 @@ function SubmitEvent(event) {
   let plCoberturaGeneric = 460;
   let plCoberturaAgendado = 0;
 
+  //PREÇO HOSPITAL (CASE 1)
   let clinicoGeralCase1 = 100;
   let genericoGeralCase1 = 300;
 
+  //Manejamento dos PLANOS
   let verficadorPlano = numConvenio.slice(0, 2);
   var planoBool = false;
   const planos = ['ST', 'MD', 'PL']; //conter TODOS os PLANOS, LISTA GLOBAL DE VERIFICAÇÃO
 
+  if(planoBool){
+    console.log("oi")
+  }
   for (let i = 0; i < planos.length; i++) {
     const variavelAtual = planos[i];
     if (variavelAtual === verficadorPlano) {
@@ -97,7 +70,7 @@ function SubmitEvent(event) {
           } else {
             let valorSubstancialST = clinicoGeralCase1 - stCoberturaClinico;
             console.log(valorSubstancialST);
-            alert("O plano não obre a consulta inteira, fica devendo")
+            alert("O plano não cobre a consulta inteira, fica devendo")
             window.location.href = "screenCompleteTotem.html";
 
             //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
@@ -111,7 +84,7 @@ function SubmitEvent(event) {
           } else {
             let valorSubstancialMD = clinicoGeralCase1 - mdCoberturaClinico;
             console.log(valorSubstancialMD * 1);
-            alert("O plano não obre a consulta inteira, fica devendo")
+            alert("O plano não cobre a consulta inteira, fica devendo")
             window.location.href = "screenCompleteTotem.html";
             //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
           }
@@ -125,11 +98,13 @@ function SubmitEvent(event) {
           } else {
             let valorSubstancialPL = clinicoGeralCase1 - plCoberturaClinico;
             console.log(valorSubstancialPL * 1);
-            alert("O plano não obre a consulta inteira, fica devendo")
+            alert("O plano não cobre a consulta inteira, fica devendo")
             window.location.href = "screenCompleteTotem.html";
             //gerar boleto para pagar a diferença - conexão com o APP ou NÚMERO
           }
         }
+
+        
       case 'generic':
         if (convenioPlano === 'ST') {
           if (genericoGeralCase1 <= stCoberturaGeneric) {
@@ -140,7 +115,7 @@ function SubmitEvent(event) {
           } else {
             let valorSubstancialSTg = genericoGeralCase1 - stCoberturaGeneric;
             console.log(valorSubstancialSTg);
-            alert("O plano não obre a consulta inteira, fica devendo");
+            alert("O plano não cobre a consulta inteira, fica devendo");
             window.location.href = "screenCompleteTotem.html";
           }
         }
@@ -153,7 +128,7 @@ function SubmitEvent(event) {
           } else {
             let valorSubstancialMDg = genericoGeralCase1 - mdCoberturaGeneric;
             console.log(valorSubstancialMDg);
-            alert("O plano não obre a consulta inteira, fica devendo");
+            alert("O plano não cobre a consulta inteira, fica devendo");
             window.location.href = "screenCompleteTotem.html";
           }
         }
@@ -165,7 +140,7 @@ function SubmitEvent(event) {
 
           } else {
             let valorSubstancialPLg = genericoGeralCase1 - plCoberturaGeneric;
-            alert("O plano não obre a consulta inteira, fica devendo")
+            alert("O plano não cobre a consulta inteira, fica devendo")
             window.location.href = "screenCompleteTotem.html";
           }
         }
