@@ -16,5 +16,9 @@ localStorage.setItem("currentUrl", currentUrl);
 function showPopup() {
   var popup = document.getElementById("popup");
   popup.style.display = "block";
-  
+  if (buttonClicked === 'clinico') {
+    setTimeout(function() {
+      window.location.href = './screenCompleteTotem.html';
+    }, 5000);
+  }
 }
