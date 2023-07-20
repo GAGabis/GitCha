@@ -15,7 +15,7 @@ body {
   width: 400px;
   padding: 40px;
   background-color: #fff;
-  box-shadow: 12px 12px 0px rgba(79,209,197,.64);  
+  box-shadow: 12px 12px 0px #8fdf96;  
   border-radius: 150px; 
 }
 
@@ -50,7 +50,7 @@ input[type="email"] {
 
 input[type="submit"] {
   width: 50%;
-  background-color: #4FD1C5;
+  background-color: #64f871;
   color: #000000;
   cursor: pointer;
   margin: 20px auto 0;

@@ -31,11 +31,11 @@ html, body {
     letter-spacing: 1.3px;
     font-weight: 700;
     color: #313133;
-    background: #4fd1c5;
-    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+    background: #16d125;
+    background: linear-gradient(90deg, #8fdf96 0%, #6bdf74 100%);
     border: none;
     border-radius: 1000px;
-    box-shadow: 12px 12px 0px rgba(79,209,197,.64);
+    box-shadow: 12px 12px 0px #37aa40;
     transition: all 0.3s ease-in-out 0s;
     cursor: pointer;
     outline: none;
@@ -130,7 +130,7 @@ html, body {
     left: 50%;
     border-radius: 80px;
     flex-direction: column;
-    border: 2px solid #00FFCB;
+    border: 2px solid #8fdf96;
     transform: translate(-50%, -50%);
   }
 
