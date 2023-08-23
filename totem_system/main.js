@@ -11,7 +11,7 @@ function createWindow() {
     }
   });
 
-  mainWindow.loadFile('src/indexStarting.html');
+  mainWindow.loadFile('src/index.html');
 
   mainWindow.on('closed', () => {
     app.quit();
@@ -26,7 +26,7 @@ function runPythonScript(mainWindow) {
     pythonOptions: ['-u'], 
   };
 
-  const pyshell = new PythonShell('reconhecimento_faces.py', options);
+  const pyshell = new PythonShell('faceRecognition.py', options);
 
   pyshell.on('message', (message) => {
     mainWindow.webContents.send('python-output', message);
@@ -53,16 +53,3 @@ app.on('window-all-closed', () => {
   }
 });
 
-ipcMain.on('python-output', (event, message) => {
-  console.log('Saída do Python:', message);
-  if (message === 'Face detected!') {
-    console.log('Face detectada!');
-    const { Notification } = require('electron');
-    const notification = new Notification({
-      title: 'Detecção de Face',
-      body: 'Uma face foi detectada!',
-    });
-    notification.show();
-  }
-});
-  
